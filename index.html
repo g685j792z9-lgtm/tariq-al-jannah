@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طريق الجنة</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ font-family:Tahoma,Arial,sans-serif;
+ background:#f8faf7;
+ color:#183b2b;
+ line-height:1.8;
+}
+header{
+ background:linear-gradient(135deg,#075b3c,#138653);
+ color:white;
+ text-align:center;
+ padding:55px 18px 45px;
+ border-radius:0 0 35px 35px;
+}
+header h1{font-size:38px;margin:0;color:#f5d98b}
+header p{font-size:17px;margin:12px 0}
+.verse{color:#fff4d5;font-size:19px}
+nav{
+ position:sticky;top:0;z-index:10;
+ display:flex;gap:9px;overflow-x:auto;
+ padding:13px;background:#fff;
+ box-shadow:0 3px 15px #00000012;
+}
+nav a{
+ flex-shrink:0;text-decoration:none;
+ color:#087448;font-weight:bold;
+ padding:8px 13px;border-radius:20px;
+ background:#edf7f0;font-size:14px;
+}
+.container{max-width:950px;margin:auto;padding:18px}
+.card{
+ background:white;border:1px solid #e3eee5;
+ border-radius:22px;padding:22px;
+ margin:20px 0;
+ box-shadow:0 6px 22px #164d3010;
+}
+h2{color:#087448;margin-top:0}
+.prayers{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:12px;
+}
+.prayer{
+ background:#edf7f0;border-radius:16px;
+ padding:14px;text-align:center;
+}
+.prayer b{display:block;color:#087448;font-size:18px}
+.prayer span{font-size:21px}
+.tiles{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:12px;
+}
+.tile{
+ background:#f0f8f2;border-radius:17px;
+ padding:18px;text-align:center;
+ color:#087448;font-weight:bold;
+}
+.tile .symbol{font-size:28px}
+button,.btn{
+ border:0;border-radius:14px;
+ background:#087448;color:white;
+ padding:12px 20px;font-size:16px;
+ font-weight:bold;text-decoration:none;
+ display:inline-block;cursor:pointer;
+}
+.gold{color:#b58a35}
+.counter{text-align:center}
+#count{font-size:48px;color:#087448;font-weight:bold}
+.counter button{margin:5px}
+.secondary{background:#e8f3eb;color:#087448}
+.arabic{font-size:21px;line-height:2.1;color:#244b36}
+footer{
+ background:#075b3c;color:white;
+ text-align:center;padding:30px 15px;
+ margin-top:35px;border-radius:30px 30px 0 0;
+}
+footer a{color:#f5d98b}
+.contact{
+ display:flex;gap:10px;flex-wrap:wrap;
+ justify-content:center;margin-top:15px
+}
+@media(max-width:500px){
+ header h1{font-size:31px}
+ .container{padding:12px}
+ .card{padding:17px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div style="font-size:38px">☪️</div>
+ <h1>طريق الجنة</h1>
+ <p>طريق الخير والعلم والإيمان</p>
+ <div class="verse">﴿ وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ ﴾</div>
+</header>
+
+<nav>
+ <a href="#quran">📖 القرآن</a>
+ <a href="#azkar">🤲 الأذكار</a>
+ <a href="#hadith">🌿 الأحاديث</a>
+ <a href="#stories">⭐ القصص</a>
+ <a href="#prayer">🕌 الصلاة</a>
+ <a href="#tasbeeh">📿 التسبيح</a>
+</nav>
+
+<main class="container">
+
+<section class="card" id="prayer">
+ <h2>🕌 مواقيت الصلاة - القاهرة</h2>
+ <p id="today">جاري تحميل التاريخ...</p>
+ <div class="prayers" id="prayerTimes">
+  <div class="prayer">جاري تحميل المواقيت...</div>
+ </div>
+ <p style="text-align:center;color:#64816d;font-size:13px">
+  المواقيت حسب مدينة القاهرة - مصر
+ </p>
+</section>
+
+<section class="card">
+ <h2>🌸 أهلاً بك في طريق الجنة</h2>
+ <p class="arabic">اجعل لسانك رطبًا بذكر الله، واجعل القرآن نور قلبك، واجعل الخير طريقك.</p>
+</section>
+
+<section class="card" id="quran">
+ <h2>📖 القرآن الكريم</h2>
+ <p>اقرأ القرآن الكريم واستمع إلى تلاوته.</p>
+ <a class="btn" href="https://quran.com/ar" target="_blank">افتح القرآن الكريم</a>
+</section>
+
+<section class="card" id="azkar">
+ <h2>🤲 أذكار يومية</h2>
+ <div class="arabic">
+  <p>سبحان الله وبحمده، سبحان الله العظيم.</p>
+  <p>أستغفر الله العظيم وأتوب إليه.</p>
+  <p>لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.</p>
+  <p>اللهم صل وسلم على نبينا محمد.</p>
+ </div>
+</section>
+
+<section class="card" id="hadith">
+ <h2>🌿 من الأحاديث النبوية</h2>
+ <p class="arabic">قال رسول الله ﷺ: «إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى»</p>
+ <p>رواه البخاري ومسلم.</p>
+ <hr style="border:0;border-top:1px solid #e3eee5">
+ <p class="arabic">قال رسول الله ﷺ: «الكلمة الطيبة صدقة»</p>
+ <p>متفق عليه.</p>
+</section>
+
+<section class="card" id="stories">
+ <h2>⭐ قصص الأنبياء</h2>
+ <div class="tiles">
+  <a class="tile" href="https://quran.com/ar" target="_blank">
+   <div class="symbol">🌊</div>قصة نوح عليه السلام
+  </a>
+  <a class="tile" href="https://quran.com/ar" target="_blank">
+   <div class="symbol">🔥</div>قصة إبراهيم عليه السلام
+  </a>
+  <a class="tile" href="https://quran.com/ar" target="_blank">
+   <div class="symbol">🐪</div>قصة يوسف عليه السلام
+  </a>
+  <a class="tile" href="https://quran.com/ar" target="_blank">
+   <div class="symbol">🌙</div>قصص الأنبياء في القرآن
+  </a>
+ </div>
+</section>
+
+<section class="card counter" id="tasbeeh">
+ <h2>📿 عداد التسبيح والاستغفار</h2>
+ <p>سبحان الله وبحمده</p>
+ <div id="count">0</div>
+ <button onclick="increase()">سبّح</button>
+ <button class="secondary" onclick="resetCount()">إعادة العداد</button>
+</section>
+
+<section class="card" style="text-align:center">
+ <h2>💚 انشر الخير</h2>
+ <p>الدال على الخير كفاعله</p>
+ <p>شارك الموقع مع أهلك وأصدقائك.</p>
+ <button onclick="shareSite()">مشاركة الموقع</button>
+</section>
+
+</main>
+
+<footer>
+ <h2 style="color:#f5d98b">طريق الجنة</h2>
+ <p>نسأل الله أن يجعل هذا العمل خالصًا لوجهه الكريم.</p>
+ <p>للتواصل معنا</p>
+ <p style="font-size:20px;direction:ltr">+201037534374</p>
+ <div class="contact">
+  <a class="btn" href="tel:+201037534374">📞 اتصل بنا</a>
+  <a class="btn" style="background:#20a65a" href="https://wa.me/201037534374" target="_blank">واتساب</a>
+ </div>
+ <p style="font-size:12px;margin-top:25px">© طريق الجنة</p>
+</footer>
+
+<script>
+function increase(){
+ let n=Number(document.getElementById('count').textContent);
+ document.getElementById('count').textContent=n+1;
+}
+function resetCount(){
+ document.getElementById('count').textContent=0;
+}
+function shareSite(){
+ if(navigator.share){
+  navigator.share({title:'طريق الجنة',url:location.href});
+ }else{
+  alert('انسخ رابط الموقع وشاركه مع أصدقائك');
+ }
+}
+async function loadPrayer(){
+ try{
+  const response=await fetch(
+   'https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5'
+  );
+  const result=await response.json();
+  const data=result.data;
+  const t=data.timings;
+  document.getElementById('today').textContent=
+   'التاريخ الهجري: '+data.date.hijri.date;
+  const names=[
+   ['الفجر',t.Fajr],
+   ['الشروق',t.Sunrise],
+   ['الظهر',t.Dhuhr],
+   ['العصر',t.Asr],
+   ['المغرب',t.Maghrib],
+   ['العشاء',t.Isha]
+  ];
+  document.getElementById('prayerTimes').innerHTML=
+   names.map(p=>'<div class="prayer"><b>'+p[0]+'</b><span>'+p[1]+'</span></div>').join('');
+ }catch(e){
+  document.getElementById('prayerTimes').innerHTML=
+   '<p>تعذر تحميل المواقيت. حاول تحديث الصفحة.</p>';
+ }
+}
+loadPrayer();
+</script>
+</body>
+</html>
