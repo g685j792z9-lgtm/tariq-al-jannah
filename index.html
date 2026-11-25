@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طريق الجنة</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Tahoma,Arial,sans-serif;
+ background:#081426;
+ color:#fff;
+ line-height:1.9;
+}
+header{
+ text-align:center;
+ padding:38px 15px;
+ background:linear-gradient(145deg,#102c49,#07101e);
+ border-bottom:2px solid #c9a75b;
+}
+header h1{color:#e8c879;font-size:35px;margin:0}
+header p{color:#d8dfeb}
+nav{
+ display:flex;flex-wrap:wrap;justify-content:center;
+ gap:9px;padding:15px;background:#101f34;
+ position:sticky;top:0;z-index:5;
+}
+nav a{
+ color:#e8c879;text-decoration:none;
+ padding:5px 9px;font-size:13px;
+}
+main{max-width:850px;margin:auto;padding:15px}
+section{
+ background:#11233a;border:1px solid #293f5c;
+ border-radius:15px;padding:20px;
+ margin:18px 0;
+}
+h2{color:#e8c879;margin-top:0}
+p{color:#e2e8f0}
+.prayers{
+ display:grid;grid-template-columns:repeat(2,1fr);gap:10px
+}
+.prayer{
+ background:#203852;padding:12px;
+ border-radius:10px;text-align:center
+}
+.prayer strong{display:block;color:#e8c879}
+button{
+ background:#c9a75b;color:#101827;
+ border:0;border-radius:10px;padding:12px 18px;
+ font-size:16px;font-weight:bold;cursor:pointer;
+}
+.big{font-size:27px;color:#e8c879;text-align:center}
+.center{text-align:center}
+a.link{color:#e8c879}
+footer{
+ text-align:center;padding:25px;color:#d6c18e;
+ background:#07101e;margin-top:25px
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>طريق الجنة</h1>
+<p>طريق الخير والعلم والإيمان</p>
+<p>﴿ وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ ﴾</p>
+</header>
+
+<nav>
+<a href="#quran">القرآن</a>
+<a href="#azkar">الأذكار</a>
+<a href="#hadith">الأحاديث</a>
+<a href="#stories">القصص</a>
+<a href="#prayer">الصلاة</a>
+<a href="#tasbeeh">الاستغفار</a>
+</nav>
+
+<main>
+
+<section id="prayer">
+<h2>🕌 مواقيت الصلاة - القاهرة</h2>
+<p id="date">جاري تحميل التاريخ...</p>
+<div class="prayers" id="prayers">
+<p>جاري تحميل مواقيت الصلاة...</p>
+</div>
+<p id="nextPrayer" class="center"></p>
+</section>
+
+<section id="quran">
+<h2>📖 القرآن الكريم</h2>
+<p>اقرأ القرآن الكريم وتدبر آياته.</p>
+<div class="center">
+<a class="link" href="https://quran.com/ar" target="_blank">
+<button>افتح القرآن الكريم</button>
+</a>
+</div>
+</section>
+
+<section id="azkar">
+<h2>🤲 الأذكار</h2>
+<h3>ذكر الصباح والمساء</h3>
+<p>سبحان الله وبحمده، سبحان الله العظيم.</p>
+<p>أستغفر الله وأتوب إليه.</p>
+<p>لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير.</p>
+<p>اللهم صل وسلم على نبينا محمد.</p>
+</section>
+
+<section id="hadith">
+<h2>🌙 حديث نبوي شريف</h2>
+<p class="big">«إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى»</p>
+<p>رواه البخاري ومسلم.</p>
+</section>
+
+<section id="stories">
+<h2>📚 قصص الأنبياء</h2>
+<h3>قصة سيدنا نوح عليه السلام</h3>
+<p>دروس في الصبر والثبات والدعوة إلى الله. اقرأ قصص الأنبياء وتعلم منها الإيمان والتوكل على الله.</p>
+<h3>قصة سيدنا إبراهيم عليه السلام</h3>
+<p>قصة عظيمة في التوحيد والثقة بالله والثبات على الحق.</p>
+</section>
+
+<section id="tasbeeh">
+<h2>📿 عداد الاستغفار والتسبيح</h2>
+<p class="center">استغفر الله العظيم وأتوب إليه</p>
+<div class="big" id="count">0</div>
+<div class="center">
+<button onclick="addCount()">استغفر الله</button>
+<button onclick="resetCount()" style="background:#d4d8df">إعادة</button>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>طريق الجنة</p>
+<p>اللهم اجعل هذا العمل خالصًا لوجهك الكريم</p>
+</footer>
+
+<script>
+async function loadPrayer(){
+ try{
+  const response=await fetch(
+  "https://api.aladhan.com/v1/timingsByCity?city=Cairo&country=Egypt&method=5");
+  const result=await response.json();
+  const t=result.data.timings;
+  const date=result.data.date.hijri;
+  document.getElementById("date").textContent=
+  "التاريخ الهجري: "+date.day+" "+date.month.ar+" "+date.year;
+  const names=[
+   ["الفجر",t.Fajr],["الشروق",t.Sunrise],
+   ["الظهر",t.Dhuhr],["العصر",t.Asr],
+   ["المغرب",t.Maghrib],["العشاء",t.Isha]
+  ];
+  document.getElementById("prayers").innerHTML=
+  names.map(p=>'<div class="prayer"><strong>'+p[0]+
+  '</strong>'+p[1]+'</div>').join("");
+  document.getElementById("nextPrayer").textContent=
+  "تم تحميل مواقيت الصلاة لمدينة القاهرة";
+ }catch(e){
+  document.getElementById("prayers").innerHTML=
+  "<p>تعذر تحميل المواقيت. تحقق من اتصال الإنترنت.</p>";
+ }
+}
+loadPrayer();
+
+let count=0;
+function addCount(){
+ count++;
+ document.getElementById("count").textContent=count;
+}
+function resetCount(){
+ count=0;
+ document.getElementById("count").textContent=count;
+}
+</script>
+</body>
+</html>
